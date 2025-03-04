@@ -1,4 +1,5 @@
 import { useOptimistic, useRef } from "react";
+import Button from "../button/Button";
 
 export type Message = {
   text: string;
@@ -31,7 +32,9 @@ export function Threads({messages, sendMessage}: ThreadsProps) {
       ))}
       <form action={formAction} ref={formRef}>
         <input type="text" name="message" placeholder="Hello!" />
-        <button type="submit">Send</button>
+        <Button isLoading={optimisticMessages[optimisticMessages.length - 1].sending}>
+          Send
+        </Button>
       </form>
     </>
   )
